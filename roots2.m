@@ -1,5 +1,5 @@
 function raiz = roots2(coef)
-    n = length(coef) -1;  % grau do polinômio 
+    n = length(coef) -1;  % grau do polinômio
     ni = n;
     coefi = coef;
     %grafico(n,coef)
@@ -16,5 +16,5 @@ function raiz = roots2(coef)
         [n coef] = freducaograu (n, coef, x(iRaiz), M)
         iRaiz = iRaiz + M;
     end
-    raiz = raiz';
+    raiz = transpose(raiz);
 end

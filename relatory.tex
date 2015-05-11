@@ -1,0 +1,79 @@
+\documentclass[fleqn]{article}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage{mathexam}
+\usepackage{amsmath}
+
+\ExamClass{Jose Victor Feijo de Araujo}
+\ExamName{14100842}
+\ExamHead{\today}
+
+\let\ds\displaystyle
+
+\begin{document}
+\item $P_{x} = x^7-(2+7 i) x^6+(3+14 i) x^5-(4+53 i) x^4+(67+92 i) x^3-(130+21 i) x^2+(65-50 i) x+25 i$
+\begin{enumerate}
+   \item Avalie previamente 3 circulos de existência de raizes, usando as cotas dadas pela propriedade 9 (apostila), a Cota de Kojima e a Cota de Cauchy. Estime n valores iniciais para as n raízes usando a menor das 3 cotas, ou seja, o menor circulo que contem todas as raizes.\\
+      \begin{enumerate}
+	 \item $\forall \alpha \textrm{ raiz} \implies |a| < 1 +                      \frac{M}{|a_{1}|} $
+	    \begin{itemize}
+	    \item Pela propriedade 9 da apostila $X_{i} = 26.5370461517612             + 26.5370461517612i$\\
+	    \end{itemize}
+	 \item $q_{1} = ({\frac{|a_{n-1}|}{|a_{n}|}})^\frac{1}{1} ,
+	        q_{2} = ({\frac{|a_{n-2}|}{|a_{n}|}})^\frac{1}{2}$ ...
+	        $q_{n} = ({\frac{|a_{0}|}{|a_{n}|}})^\frac{1}{n}$
+	    \begin{itemize}
+	    \item Os resultados obtidos pela cota de Kogima foram
+	        $X_{i} = 2.21279991261045 + 2.21279991261045i$\\
+	    \end{itemize}
+	 \item $X_{1+1} = \left[\frac{|a_{n-1}|}{|a_{n}|}X^{n-1} + ... +
+	       \frac{|a_{1}|}{|a_{n}|}X +\frac{|a_{0}|}{|a_{1}|}\right]
+	       ^\frac{1}{n}$ $a_{0}\neq 0, a_{n}\neq 0$
+	    \begin{itemize}
+	    \item Ja o resultado obtido pela cota de Cauchey foi
+	          $X_{i} = 1.79736767494896 + 1.79736767494896i$\\
+	    \end{itemize}
+      \end{enumerate}
+   \item  Determine todas as raizes e respectivas multiplicidades (em         precisao double).
+   \begin{itemize}
+        \item Utilizando a cota de Kogima como criterio de valor         inicial, as raizes, multiplicidades e iteracoes respectivamente       foram:\\
+        $r_{1} = 1.000000000000000 + 0.000000000000000i,\ M = 2, \                Iteracoes = 19$\\
+        $r_{2} = 1.000000000000000 + 0.000000000000000i,\ M = 2, \              Iteracoes = 19$\\
+        $r_{3} = 0.000000000000000 - 1.000000000000000i,\ M = 3, \               Iteracoes = 21$\\
+        $r_{4} = 0.000000000000000 - 1.000000000000000i,\ M = 3, \               Iteracoes = 21$\\
+        $r_{5} = 0.000000000000000 - 1.000000000000000i,\ M = 3, \              Iteracoes = 21$\\
+        $r_{6} = 0.000000000000000 + 5.000000000000000i,\ M = 2, \              Iteracoes = 9$\\
+        $r_{7} = 0.000000000000000 + 5.000000000000000i,\ M = 2, \              Iteracoes = 9$\\
+   \end{itemize}
+   \item Compare seus resultados com o metodo de Newton-Raphson         tradicional, plano, fazendo M=1 (apos o calculo de M real efetuado    na function frestos).
+   \begin{itemize}
+    \item Considerando o M = 1 e iterando no maximo 100, temos que:\\
+        $r_{1} = 1.00000000042296e+00 - 2.92892588647462e-09i,\ M = 1, \                Iteracoes = 100$\\
+        $r_{2} = 1.00000000259288e+00 - 1.88185838592553e-09i,\ M = 1, \              Iteracoes = 100$\\
+        $r_{3} = -3.22955910528876e-06 - 9.99993070467615e-01i,\ M = 1, \               Iteracoes = 100$\\
+        $r_{4} = -4.84224775894877e-09 + 5.00000002167501e+00i,\ M = 1, \               Iteracoes = 100$\\
+        $r_{5} =-7.57307604856866e-07 - 9.99998315472827e-01i,\ M = 1, \              Iteracoes = 20$\\
+        $r_{6} = -5.50714520684539e-08 + 5.00000014287929e+00i,\ M = 1, \              Iteracoes = 100$\\
+        $r_{7} = -2.19882773530464e-07 - 9.99998864116888e-01i,\ M = 1, \              Iteracoes = 2$\\
+   \end{itemize}
+      \item Compare seus resultados com os da function roots(coef) do Octave e com os resultados do Wolframalfha.
+   \begin{itemize}
+    \item Considerando que o roots do octave usa M = 1 temos que:\\
+        $r_{1} = 3.26655209548221e-08 + 5.00000005997915e+00i,\ M = 1$\\
+        $r_{2} = -3.26655229890019e-08 + 4.99999994002086e+00i,\ M =1$\\
+        $r_{3} = -1.00000000686305e+00 + 9.12754547974889e-09i,\ M = 1$\\
+        $r_{4} = 9.99999993136951e-01 - 9.12754347642316e-09i,\ M = 1$\\
+        $r_{5} = -4.64713029739972e-06 - 9.99987681932724e-01i,\ M = 1$\\
+        $r_{6} = -8.34421772378565e-06 - 1.00001018357625e+00i,\ M = 1$\\
+        $r_{7} = 1.29913480180263e-05 - 1.00000213449102e+00i,\ M = 1$\\
+        \newpage
+        \item O resultado do WolframAlpha foi mais preciso, semelhante ao calculado com multiplicidade feito anteriormente na questao numero 2:\\
+        $r_{1} = 1$\\
+        $r_{2} = 1$\\
+        $r_{3} = -i$\\
+        $r_{4} = -i$\\
+        $r_{5} = -i$\\
+        $r_{6} = 5i$\\
+        $r_{7} = 5i$\\
+   \end{itemize}
+\end{enumerate}
+\end{document}
